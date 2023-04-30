@@ -1,7 +1,9 @@
 import asyncio
-import weakref
+from typing import Optional
 
-from hive.loops import setup_uviloop
+import uvloop
+
+from hive.signals import setup_signal_handlers
 
 
 class Server:
@@ -14,8 +16,11 @@ class Server:
     async def shutdown(self) -> None:
         ...
 
+    def on_shutdown_signal(self, graceful_shutdown: bool = True, signal: Optional[int] = None):
+        ...
+
 
 def run(server: Server) -> None:
-    setup_uviloop()
+    uvloop.install()
 
     return asyncio.run(server.serve())

@@ -47,7 +47,8 @@ routes = [
     # WebSocketRoute('/ws', websocket_endpoint),
 ]
 
-app = Starlette(debug=True, routes=routes, on_startup=[startup])
+if __name__ == "__main__":
+    app = Starlette(debug=True, routes=routes, on_startup=[startup])
 
 
-run(TCPServer(config=Config(app=app)))
+    run(TCPServer(config=Config(app=app)))
