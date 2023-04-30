@@ -36,7 +36,7 @@ async def websocket_endpoint(websocket):
     await websocket.close()
 
 
-def startup():
+def startup(): # TODO: implement support for ASGI lifecycle events
     print('Ready to go')
 
 
@@ -49,6 +49,5 @@ routes = [
 
 if __name__ == "__main__":
     app = Starlette(debug=True, routes=routes, on_startup=[startup])
-
 
     run(TCPServer(config=Config(app=app)))

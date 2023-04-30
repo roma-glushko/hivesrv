@@ -3,8 +3,6 @@ from typing import Optional
 
 import uvloop
 
-from hive.signals import setup_signal_handlers
-
 
 class Server:
     async def startup(self) -> None:
