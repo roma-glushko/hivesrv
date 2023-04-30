@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "hive"
+version = "0.0.1"
+description = ""
+authors = ["Roman Glushko <roman.glushko.m@gmail.com>"]
+license = "MIT"
+
+packages = [
+    { include = "src/hive" },
+]
+
+[tool.poetry.dependencies]
+python = ">=3.9, <4.0"
+h11 = "^0.13.0"
+wsproto = "^1.2.0"
+
+[tool.poetry.dev-dependencies]
+mypy = "^0.971"
+flake8 = "^5.0.4"
+isort = "^5.10.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
